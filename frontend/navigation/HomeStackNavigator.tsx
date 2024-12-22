@@ -10,7 +10,13 @@ const HomeStack = createStackNavigator();
 const HomeStackNavigator = () => {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen component={HomeScreen} name={HOME_SCREEN_NAME} />
+      <HomeStack.Screen
+        component={HomeScreen}
+        name={HOME_SCREEN_NAME}
+        options={{
+          headerShown: false,
+        }}
+      />
       <HomeStack.Screen
         component={SongsListScreen}
         name={SONGS_LIST_SCREEN_NAME}
