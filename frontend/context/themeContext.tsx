@@ -13,12 +13,13 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [mode, setMode] = useState<Theme>("light");
+  const [mode, setMode] = useState<Theme>("dark");
+
+  tw.setColorScheme(mode);
 
   const toggleTheme = () => {
     const newMode = mode === "light" ? "dark" : "light";
     setMode(newMode);
-    tw.setColorScheme(newMode);
   };
 
   return (
