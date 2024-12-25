@@ -1,0 +1,122 @@
+[
+  {
+    "id": "playlist-1",
+    "title": "Summer Vibes",
+    "caption": "The Weeknd, Harry Styles",
+    "thumbnail": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da844fc419eb9ee946468771f3d1",
+    "songs": [
+      {
+        "title": "Blinding Lights",
+        "artist": "The Weeknd",
+        "category": "Pop",
+        "url": "https://example.com/music/blinding_lights.mp3",
+        "thumbnailUrl": "https://example.com/images/blinding_lights.jpg",
+        "duration": "3:20"
+      },
+      {
+        "title": "Watermelon Sugar",
+        "artist": "Harry Styles",
+        "category": "Pop",
+        "url": "https://example.com/music/watermelon_sugar.mp3",
+        "thumbnailUrl": "https://example.com/images/watermelon_sugar.jpg",
+        "duration": "2:54"
+      },
+      {
+        "title": "Dance Monkey",
+        "artist": "Tones and I",
+        "category": "Pop",
+        "url": "https://example.com/music/dance_monkey.mp3",
+        "thumbnailUrl": "https://example.com/images/dance_monkey.jpg",
+        "duration": "3:30"
+      },
+      {
+        "title": "Shape of You",
+        "artist": "Ed Sheeran",
+        "category": "Pop",
+        "url": "https://example.com/music/shape_of_you.mp3",
+        "thumbnailUrl": "https://example.com/images/shape_of_you.jpg",
+        "duration": "3:53"
+      }
+    ]
+  },
+  {
+    "id": "playlist-2",
+    "title": "Chill Vibes",
+    "caption": "Lewis Capaldi, Ed Sheeran",
+    "thumbnail": "https://i.ytimg.com/vi/x7vqvZlyxfw/maxresdefault.jpg",
+    "songs": [
+      {
+        "title": "Someone You Loved",
+        "artist": "Lewis Capaldi",
+        "category": "Pop",
+        "url": "https://example.com/music/someone_you_loved.mp3",
+        "thumbnailUrl": "https://example.com/images/someone_you_loved.jpg",
+        "duration": "3:02"
+      },
+      {
+        "title": "Perfect",
+        "artist": "Ed Sheeran",
+        "category": "Pop",
+        "url": "https://example.com/music/perfect.mp3",
+        "thumbnailUrl": "https://example.com/images/perfect.jpg",
+        "duration": "3:42"
+      },
+      {
+        "title": "Thinking Out Loud",
+        "artist": "Ed Sheeran",
+        "category": "Pop",
+        "url": "https://example.com/music/thinking_out_loud.mp3",
+        "thumbnailUrl": "https://example.com/images/thinking_out_loud.jpg",
+        "duration": "4:40"
+      },
+      {
+        "title": "A Thousand Years",
+        "artist": "Christina Perri",
+        "category": "Pop",
+        "url": "https://example.com/music/a_thousand_years.mp3",
+        "thumbnailUrl": "https://example.com/images/a_thousand_years.jpg",
+        "duration": "4:24"
+      }
+    ]
+  },
+  {
+    "id": "playlist-3",
+    "title": "Workout Motivation",
+    "caption": "Imagine Dragons, Bruno Mars",
+    "thumbnail": "https://i.scdn.co/image/ab67616d0000b273b75d5de902344aa7ef109f63",
+    "songs": [
+      {
+        "title": "Believer",
+        "artist": "Imagine Dragons",
+        "category": "Pop",
+        "url": "https://example.com/music/believer.mp3",
+        "thumbnailUrl": "https://example.com/images/believer.jpg",
+        "duration": "3:24"
+      },
+      {
+        "title": "Thunder",
+        "artist": "Imagine Dragons",
+        "category": "Pop",
+        "url": "https://example.com/music/thunder.mp3",
+        "thumbnailUrl": "https://example.com/images/thunder.jpg",
+        "duration": "3:07"
+      },
+      {
+        "title": "Radioactive",
+        "artist": "Imagine Dragons",
+        "category": "Pop",
+        "url": "https://example.com/music/radioactive.mp3",
+        "thumbnailUrl": "https://example.com/images/radioactive.jpg",
+        "duration": "3:09"
+      },
+      {
+        "title": "Uptown Funk",
+        "artist": "Mark Ronson ft. Bruno Mars",
+        "category": "Pop",
+        "url": "https://example.com/music/uptown_funk.mp3",
+        "thumbnailUrl": "https://example.com/images/uptown_funk.jpg",
+        "duration": "4:29"
+      }
+    ]
+  }
+]

@@ -6,6 +6,7 @@ import twrnc from "twrnc";
 import { useTheme } from "../context/themeContext";
 import { colors } from "../constants/colorConstants";
 import { ScrollView } from "react-native-gesture-handler";
+import PopularPlaylist from "../components/PopularPlaylist";
 
 export const HOME_SCREEN_NAME = "Home";
 
@@ -31,7 +32,7 @@ type Category = {
 // Header Component
 function Header() {
   return (
-    <View style={[twrnc`flex-row justify-between p-3`]}>
+    <View style={[twrnc`flex-row justify-between items-center p-3`]}>
       <View>
         <Text style={tw`dark:text-white text-3xl font-bold`}>Good Morning</Text>
       </View>
@@ -90,8 +91,8 @@ function HomeScreen({ navigation }: HomeScreenProps) {
             >
               <Text
                 style={[
-                  tw`text-white text-xl`,
-                  c.isActive && { color: "black" },
+                  tw`dark:text-white text-xl`,
+                  c.isActive && tw`text-white dark:text-black`,
                 ]}
               >
                 {c.title}
@@ -100,6 +101,9 @@ function HomeScreen({ navigation }: HomeScreenProps) {
           ))}
         </ScrollView>
       </View>
+
+      {/* Popular Playlist */}
+      <PopularPlaylist />
     </View>
   );
 }
