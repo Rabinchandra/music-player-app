@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  SafeAreaView,
+} from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import tw from "@jaredh159/twrn";
-import twrnc from "twrnc";
+import ttw from "@jaredh159/twrn";
+import tw from "twrnc";
 import { useTheme } from "../context/themeContext";
 import { colors } from "../constants/colorConstants";
 import { ScrollView } from "react-native-gesture-handler";
 import PopularPlaylist from "../components/PopularPlaylist";
+import ThemeToggler from "../components/ThemeToggler";
 
 export const HOME_SCREEN_NAME = "Home";
 
@@ -32,9 +39,11 @@ type Category = {
 // Header Component
 function Header() {
   return (
-    <View style={[twrnc`flex-row justify-between items-center p-3`]}>
+    <View style={[tw`flex-row justify-between items-center pb-3 mx-2 pt-4`]}>
       <View>
-        <Text style={tw`dark:text-white text-3xl font-bold`}>Good Morning</Text>
+        <Text style={[ttw`dark:text-white`, tw`text-3xl font-bold`]}>
+          Good Morning
+        </Text>
       </View>
       <Image
         source={{
@@ -46,7 +55,8 @@ function Header() {
   );
 }
 
-function HomeScreen({ navigation }: HomeScreenProps) {
+// Categories
+function Categories() {
   const [categories, setCategories] = useState<Category[]>([
     { id: 1, title: "All", isActive: true },
     { id: 2, title: "Music", isActive: false },
@@ -54,9 +64,6 @@ function HomeScreen({ navigation }: HomeScreenProps) {
     { id: 4, title: "Popular", isActive: false },
     { id: 5, title: "Hits", isActive: false },
   ]);
-
-  useTheme();
-
   const updateActiveCategory = (id: number) => {
     setCategories((prevCategories) =>
       prevCategories.map((category) => ({
@@ -67,51 +74,51 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   };
 
   return (
-    <View style={[styles.container, tw`bg-white dark:bg-black pt-14 px-3`]}>
-      {/* Header */}
-      <Header />
-
-      {/* Categories */}
-      <View style={tw`mt-3`}>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ flexDirection: "row" }}
-        >
-          {categories.map((c) => (
-            <TouchableOpacity
-              key={c.id}
+    <View style={tw`mt-3`}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ flexDirection: "row" }}
+      >
+        {categories.map((c) => (
+          <TouchableOpacity
+            key={c.id}
+            style={[
+              ttw`py-2 px-5 rounded-lg`,
+              c.isActive && {
+                backgroundColor: `${colors.primaryGreenColor}`,
+              },
+            ]}
+            onPress={() => updateActiveCategory(c.id)}
+          >
+            <Text
               style={[
-                tw`py-2 px-5 rounded-lg`,
-                c.isActive && {
-                  backgroundColor: `${colors.primaryGreenColor}`,
-                },
+                ttw`dark:text-white text-xl`,
+                c.isActive && ttw`text-white dark:text-black`,
               ]}
-              onPress={() => updateActiveCategory(c.id)}
             >
-              <Text
-                style={[
-                  tw`dark:text-white text-xl`,
-                  c.isActive && tw`text-white dark:text-black`,
-                ]}
-              >
-                {c.title}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* Popular Playlist */}
-      <PopularPlaylist />
+              {c.title}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+function HomeScreen() {
+  useTheme();
+
+  return (
+    <SafeAreaView style={[tw`flex-1`, ttw`bg-white dark:bg-black`]}>
+      <View style={tw`flex-1 pl-3`}>
+        <Header />
+        <Categories />
+        <PopularPlaylist />
+        <ThemeToggler />
+      </View>
+    </SafeAreaView>
+  );
+}
 
 export default HomeScreen;

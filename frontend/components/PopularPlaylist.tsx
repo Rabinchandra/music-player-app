@@ -55,7 +55,7 @@ const PopularPlaylist = () => {
       </Text>
 
       {/* PlayList */}
-      <ScrollView horizontal>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={tw`flex-row gap-5`}>
           {playList.map((item, index) => (
             <PopularPlayListCard
