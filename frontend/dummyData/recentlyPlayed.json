@@ -1,0 +1,38 @@
+[
+  {
+    "id": "2",
+    "title": "Dance Monkey",
+    "artist": "Tones and I",
+    "category": "Pop",
+    "url": "https://example.com/music/dance_monkey.mp3",
+    "thumbnailUrl": "https://c.saavncdn.com/798/Dance-Monkey-English-2020-20200221154211-500x500.jpg",
+    "duration": "3:30"
+  },
+  {
+    "id": "3",
+    "title": "Shape of You",
+    "artist": "Ed Sheeran",
+    "category": "Pop",
+    "url": "https://example.com/music/shape_of_you.mp3",
+    "thumbnailUrl": "https://i1.sndcdn.com/artworks-000201815846-eyv7k8-t500x500.jpg",
+    "duration": "3:53"
+  },
+  {
+    "id": "4",
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "category": "Pop",
+    "url": "https://example.com/music/blinding_lights.mp3",
+    "thumbnailUrl": "https://i.ytimg.com/vi/fHI8X4OXluQ/maxresdefault.jpg",
+    "duration": "3:20"
+  },
+  {
+    "id": "1",
+    "title": "Watermelon Sugar",
+    "artist": "Harry Styles",
+    "category": "Pop",
+    "url": "https://example.com/music/watermelon_sugar.mp3",
+    "thumbnailUrl": "https://64.media.tumblr.com/7fc6d11226a35f5a28d89d1cf9029a3c/7e1d7e4565905266-58/s1280x1920/6819e08385de2317f5ea42e3e7753be0b5cbba51.jpg",
+    "duration": "2:54"
+  }
+]
