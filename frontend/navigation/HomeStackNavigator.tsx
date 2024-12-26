@@ -4,6 +4,7 @@ import HomeScreen, { HOME_SCREEN_NAME } from "../screens/HomeScreen";
 import SongsListScreen, {
   SONGS_LIST_SCREEN_NAME,
 } from "../screens/SongsListScreen";
+import SongScreen, { SONG_SCREEN_NAME } from "../screens/SongScreen";
 
 const HomeStack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const HomeStackNavigator = () => {
         component={SongsListScreen}
         name={SONGS_LIST_SCREEN_NAME}
       />
+      <HomeStack.Screen component={SongScreen} name={SONG_SCREEN_NAME} />
     </HomeStack.Navigator>
   );
 };
