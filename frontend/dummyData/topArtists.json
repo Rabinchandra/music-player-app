@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "name": "Taylor Swift",
+    "thumbnail": "https://i.scdn.co/image/ab6761610000e5ebe672b5f553298dcdccb0e676"
+  },
+  {
+    "id": "2",
+    "name": "Arijit Singh",
+    "thumbnail": "https://i.ytimg.com/vi/BisqQxZzNMU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCbw7-Oe0jQdPkosn2jkYInFMs2sg"
+  },
+  {
+    "id": "3",
+    "name": "Adele",
+    "thumbnail": "https://i.scdn.co/image/ab67616d00001e02c4a69caf5a2b8fc6d2def89c"
+  },
+  {
+    "id": "4",
+    "name": "Drake",
+    "thumbnail": "https://i.scdn.co/image/ab6761610000e5eb4293385d324db8558179afd9"
+  },
+  {
+    "id": "5",
+    "name": "Billie Eilish",
+    "thumbnail": "https://media.vogue.co.uk/photos/609be9483a19779128a1509b/master/pass/Billie-Eilish-Happier-Than-Ever.jpeg"
+  }
+]

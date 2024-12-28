@@ -10,6 +10,7 @@ import HomeHeader from "../components/HomeScreenComponents/HomeHeader";
 import Categories from "../components/HomeScreenComponents/Categories";
 import RecentlyPlayed from "../components/HomeScreenComponents/RecentlyPlayed";
 import { ScrollView } from "react-native-gesture-handler";
+import TopArtists from "../components/HomeScreenComponents/TopArtists";
 
 export const HOME_SCREEN_NAME = "Home";
 
@@ -18,12 +19,13 @@ function HomeScreen() {
 
   return (
     <SafeAreaView style={[tw`flex-1`, ttw`bg-white dark:bg-black`]}>
-      <ScrollView style={tw`flex-1 pl-3`}>
+      <ScrollView style={tw`flex-1 pl-3 pb-6`}>
         <HomeHeader />
         <Categories />
         <PopularPlaylist />
         <RecentlyPlayed />
-        <ThemeToggler />
+        <TopArtists />
+        {/* <ThemeToggler /> */}
       </ScrollView>
     </SafeAreaView>
   );
