@@ -4,6 +4,7 @@ import BottomTabNavigators from "./navigation/BottomTabNavigators";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import StackNavigator from "./navigation/StackNavigator";
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
         <StatusBar />
         <ThemeProvider>
           <NavigationContainer>
-            <BottomTabNavigators />
+            <StackNavigator />
           </NavigationContainer>
         </ThemeProvider>
       </GestureHandlerRootView>

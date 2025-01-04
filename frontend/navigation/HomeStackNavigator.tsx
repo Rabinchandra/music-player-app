@@ -22,7 +22,6 @@ const HomeStackNavigator = () => {
         component={SongsListScreen}
         name={SONGS_LIST_SCREEN_NAME}
       />
-      <HomeStack.Screen component={SongScreen} name={SONG_SCREEN_NAME} />
     </HomeStack.Navigator>
   );
 };

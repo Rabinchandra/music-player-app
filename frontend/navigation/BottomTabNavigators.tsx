@@ -27,7 +27,6 @@ function BottomTabNavigators() {
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-
         tabBarActiveTintColor: colors.primaryGreenColor,
         tabBarInactiveTintColor: mode == "dark" ? "white" : "black",
         tabBarStyle: {
