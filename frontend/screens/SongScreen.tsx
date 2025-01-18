@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, Text, Image } from "react-native";
+import { View, TouchableOpacity, Text, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import { Audio } from "expo-av";
@@ -8,6 +8,7 @@ import { FontAwesome6, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import Slider from "@react-native-community/slider";
 import { colors } from "../constants/colorConstants";
 import { LinearGradient } from "expo-linear-gradient";
+import SongLyrics from "../components/SongLyrics";
 
 export const SONG_SCREEN_NAME = "Song";
 
@@ -15,6 +16,7 @@ const SongScreen = () => {
   const navigation = useNavigation();
   const imageUri =
     "https://c.saavncdn.com/798/Dance-Monkey-English-2020-20200221154211-500x500.jpg";
+
   const [sound, setSound] = useState<Audio.Sound | undefined>(undefined);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -137,99 +139,113 @@ const SongScreen = () => {
   };
 
   return (
-    <LinearGradient
-      colors={["#f54272", "#191414"]}
-      locations={[0, 0.7]}
-      style={tw`text-center p-4 relative flex-1`}
-    >
-      {/* Header */}
-      <View style={tw`py-4`}>
-        <Text onPress={handleGoBack}>
-          <Ionicons name="arrow-back" size={24} color="white" />
-        </Text>
-      </View>
-
-      {/* Song Image */}
-      <View style={tw`flex-1 justify-center items-center`}>
-        <Image
-          source={{
-            uri: imageUri,
-          }}
-          style={tw`w-50 h-50`}
-        />
-      </View>
-
-      <View style={tw`pb-24`}>
-        {/* Progress Slider */}
-        <View style={{ width: "100%", height: 10 }}>
-          <Slider
-            style={{ width: "100%" }}
-            minimumValue={0}
-            maximumValue={1}
-            value={sliderValue}
-            onValueChange={(value) => {
-              setIsSliding(true);
-              setSliderValue(value);
-            }}
-            onSlidingComplete={(value) => {
-              setIsSliding(false);
-              onSliderValueChange(value);
-            }}
-            minimumTrackTintColor={colors.primaryGreenColor}
-            maximumTrackTintColor="#8E8E93"
-          />
-        </View>
-
-        <View style={tw`flex-row justify-between`}>
-          <Text>
-            {isSliding && duration
-              ? millisToMinutesAndSeconds(sliderValue * duration)
-              : playbackPosition
-              ? millisToMinutesAndSeconds(playbackPosition)
-              : `0:00`}
+    <ScrollView style={tw`flex-1`}>
+      <LinearGradient
+        colors={["#f54272", "#191414"]}
+        locations={[0, 0.7]}
+        style={tw`text-center p-4 flex-1 h-[200]`}
+      >
+        {/* Header */}
+        <View style={tw`py-4`}>
+          <Text onPress={handleGoBack}>
+            <Ionicons name="arrow-back" size={24} color="white" />
           </Text>
-          <Text>{duration ? millisToMinutesAndSeconds(duration) : `0:00`}</Text>
         </View>
 
-        {/* Action Buttons */}
-        <View style={tw`flex-row justify-between py-4 items-center`}>
-          <TouchableOpacity>
-            <FontAwesome6 name="shuffle" size={20} color="white" />
-          </TouchableOpacity>
+        {/* Song Image */}
+        <View style={tw`flex-1 justify-center items-center`}>
+          <Image
+            source={{
+              uri: imageUri,
+            }}
+            style={tw`w-50 h-50`}
+          />
+          <View>
+            <Text style={tw`font-bold mt-4 text-white text-2xl`}>
+              Dance Monkey
+            </Text>
+          </View>
+        </View>
 
-          <View style={tw`flex-row gap-2 items-center`}>
-            {/* Previous */}
-            <TouchableOpacity>
-              <MaterialIcons name="skip-previous" size={30} color="white" />
-            </TouchableOpacity>
-            {/* Pause/Play */}
-            <TouchableOpacity
-              style={tw`bg-white rounded-full w-16 h-16 justify-center items-center`}
-              onPress={isPlaying ? pauseSound : playSound}
-            >
-              {isPlaying ? (
-                <FontAwesome name="pause" size={30} color="black" />
-              ) : (
-                <FontAwesome
-                  name="play"
-                  size={30}
-                  color="black"
-                  style={tw`ml-1`}
-                />
-              )}
-            </TouchableOpacity>
-            {/* Next */}
-            <TouchableOpacity>
-              <MaterialIcons name="skip-next" size={30} color="white" />
-            </TouchableOpacity>
+        <View style={tw`pb-24`}>
+          {/* Progress Slider */}
+          <View style={{ width: "100%", height: 10 }}>
+            <Slider
+              style={{ width: "100%" }}
+              minimumValue={0}
+              maximumValue={1}
+              value={sliderValue}
+              onValueChange={(value) => {
+                setIsSliding(true);
+                setSliderValue(value);
+              }}
+              onSlidingComplete={(value) => {
+                setIsSliding(false);
+                onSliderValueChange(value);
+              }}
+              minimumTrackTintColor={"#fff"}
+              maximumTrackTintColor="#8E8E93"
+            />
           </View>
 
-          <TouchableOpacity>
-            <FontAwesome6 name="repeat" size={20} color="white" />
-          </TouchableOpacity>
+          <View style={tw`flex-row justify-between`}>
+            <Text>
+              {isSliding && duration
+                ? millisToMinutesAndSeconds(sliderValue * duration)
+                : playbackPosition
+                ? millisToMinutesAndSeconds(playbackPosition)
+                : `0:00`}
+            </Text>
+            <Text>
+              {duration ? millisToMinutesAndSeconds(duration) : `0:00`}
+            </Text>
+          </View>
+
+          {/* Action Buttons */}
+          <View style={tw`flex-row justify-between py-4 items-center`}>
+            <TouchableOpacity>
+              <FontAwesome6
+                name="shuffle"
+                size={20}
+                color={colors.primaryGreenColor}
+              />
+            </TouchableOpacity>
+
+            <View style={tw`flex-row gap-2 items-center`}>
+              {/* Previous */}
+              <TouchableOpacity>
+                <MaterialIcons name="skip-previous" size={30} color="white" />
+              </TouchableOpacity>
+              {/* Pause/Play */}
+              <TouchableOpacity
+                style={tw`bg-white rounded-full w-16 h-16 justify-center items-center`}
+                onPress={isPlaying ? pauseSound : playSound}
+              >
+                {isPlaying ? (
+                  <FontAwesome name="pause" size={30} color="black" />
+                ) : (
+                  <FontAwesome
+                    name="play"
+                    size={30}
+                    color="black"
+                    style={tw`ml-1`}
+                  />
+                )}
+              </TouchableOpacity>
+              {/* Next */}
+              <TouchableOpacity>
+                <MaterialIcons name="skip-next" size={30} color="white" />
+              </TouchableOpacity>
+            </View>
+
+            <TouchableOpacity>
+              <FontAwesome6 name="repeat" size={20} color="white" />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </LinearGradient>
+        <SongLyrics title="dance monkey" artist="tone" />
+      </LinearGradient>
+    </ScrollView>
   );
 };
 
