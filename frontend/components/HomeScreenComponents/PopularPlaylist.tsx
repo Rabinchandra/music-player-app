@@ -49,7 +49,7 @@ const PopularPlaylist = () => {
   const navigation = useNavigation<NavigationProp>();
 
   return (
-    <View style={tw`mt-8`}>
+    <View style={tw`mt-5`}>
       {/* Header */}
       <Text style={[tw`text-2xl font-bold pb-4`, ttw`dark:text-white`]}>
         Popular Playlist

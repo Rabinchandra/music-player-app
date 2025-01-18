@@ -14,3 +14,9 @@ export interface Playlist {
   thumbnail: string;
   songs: Song[];
 }
+
+export interface Artist {
+  id: string;
+  name: string;
+  thumbnail: string;
+}
