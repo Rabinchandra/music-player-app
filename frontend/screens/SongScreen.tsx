@@ -139,37 +139,37 @@ const SongScreen = () => {
   };
 
   return (
-    <ScrollView style={tw`flex-1`}>
-      <LinearGradient
-        colors={["#f54272", "#191414"]}
-        locations={[0, 0.7]}
-        style={tw`text-center p-4 flex-1 h-[200]`}
-      >
-        {/* Header */}
-        <View style={tw`py-4`}>
-          <Text onPress={handleGoBack}>
-            <Ionicons name="arrow-back" size={24} color="white" />
-          </Text>
-        </View>
+    <LinearGradient
+      colors={["#f54272", "#191414"]}
+      locations={[0, 0.7]}
+      style={tw`text-center p-4 flex-1`}
+    >
+      {/* Header */}
+      <View style={tw`absolute px-3 z-20 my-6`}>
+        <Text onPress={handleGoBack}>
+          <Ionicons name="arrow-back" size={24} color="white" />
+        </Text>
+      </View>
 
-        {/* Song Image */}
-        <View style={tw`flex-1 justify-center items-center`}>
-          <Image
-            source={{
-              uri: imageUri,
-            }}
-            style={tw`w-50 h-50`}
-          />
-          <View>
-            <Text style={tw`font-bold mt-4 text-white text-2xl`}>
-              Dance Monkey
-            </Text>
+      <ScrollView style={tw`flex-1`} showsVerticalScrollIndicator={false}>
+        <View style={tw`h-130 mb-5`}>
+          {/* Song Image */}
+          <View style={tw`flex-1 justify-center items-center`}>
+            <Image
+              source={{
+                uri: imageUri,
+              }}
+              style={tw`w-50 h-50`}
+            />
+            <View>
+              <Text style={tw`font-bold mt-4 text-white text-2xl`}>
+                Dance Monkey
+              </Text>
+            </View>
           </View>
-        </View>
 
-        <View style={tw`pb-24`}>
           {/* Progress Slider */}
-          <View style={{ width: "100%", height: 10 }}>
+          <View style={{ width: "100%", height: 40 }}>
             <Slider
               style={{ width: "100%" }}
               minimumValue={0}
@@ -188,15 +188,16 @@ const SongScreen = () => {
             />
           </View>
 
+          {/* Duration */}
           <View style={tw`flex-row justify-between`}>
-            <Text>
+            <Text style={tw`text-white`}>
               {isSliding && duration
                 ? millisToMinutesAndSeconds(sliderValue * duration)
                 : playbackPosition
                 ? millisToMinutesAndSeconds(playbackPosition)
                 : `0:00`}
             </Text>
-            <Text>
+            <Text style={tw`text-white`}>
               {duration ? millisToMinutesAndSeconds(duration) : `0:00`}
             </Text>
           </View>
@@ -244,8 +245,8 @@ const SongScreen = () => {
           </View>
         </View>
         <SongLyrics title="dance monkey" artist="tone" />
-      </LinearGradient>
-    </ScrollView>
+      </ScrollView>
+    </LinearGradient>
   );
 };
 

@@ -9,7 +9,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-connectDb();
+// connectDb();
 
 // Middlewares
 // app.use(express.urlencoded({ extended: true }));

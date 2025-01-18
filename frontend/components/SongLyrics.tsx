@@ -11,6 +11,7 @@ type SongLyricsProps = {
 
 const SongLyrics = ({ title, artist }: SongLyricsProps) => {
   const [lyrics, setLyrics] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   async function getLyrics() {
     try {
@@ -32,14 +33,27 @@ const SongLyrics = ({ title, artist }: SongLyricsProps) => {
 
   useEffect(() => {
     console.log("Fetching lyrics");
-    getLyrics();
+    getLyrics().then(() => setIsLoading(false));
   }, [title, artist]);
 
   return (
-    <ScrollView >
-      <Text style={tw`text-white`}>SongLyrics</Text>
-      <Text style={tw`text-white`}>{lyrics}</Text>
-    </ScrollView>
+    <>
+      {isLoading ? (
+        <View>
+          <Text>Loading...</Text>
+        </View>
+      ) : (
+        <ScrollView
+          style={tw`rounded-[16px] h-100 p-4`}
+          showsVerticalScrollIndicator={false}
+        >
+          <Text style={tw`text-white capitalize text-xl font-bold mb-2`}>
+            Lyrics
+          </Text>
+          <Text style={tw`text-white leading-5`}>{lyrics}</Text>
+        </ScrollView>
+      )}
+    </>
   );
 };
 
